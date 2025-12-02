@@ -1,0 +1,586 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Zehra Azim | DPhil Student, University of Oxford</title>
+  <meta name="description" content="Personal website of Zehra Azim, DPhil student in Pharmacology at the University of Oxford, working on neuroinflammation and traumatic brain injury.">
+  <style>
+    :root {
+      --oxford-blue: #123260;
+      --oxford-gold: #cfae4f;
+      --bg: #faf8f3;
+      --bg-card: #ffffff;
+      --border-soft: #e4dfd4;
+      --text-main: #22252f;
+      --muted: #777b86;
+    }
+
+    * {
+      box-sizing: border-box;
+      scroll-behavior: smooth;
+    }
+
+    body {
+      margin: 0;
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI",
+        Roboto, sans-serif;
+      background: var(--bg);
+      color: var(--text-main);
+      line-height: 1.6;
+    }
+
+    header {
+      border-bottom: 1px solid var(--border-soft);
+      background: rgba(255, 255, 255, 0.9);
+      backdrop-filter: blur(6px);
+      position: sticky;
+      top: 0;
+      z-index: 10;
+    }
+
+    .header-inner {
+      max-width: 980px;
+      margin: 0 auto;
+      padding: 0.9rem 1.5rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1.25rem;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+    }
+
+    .monogram {
+      width: 38px;
+      height: 38px;
+      border-radius: 999px;
+      border: 1px solid var(--border-soft);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: "Georgia", "Times New Roman", serif;
+      font-size: 0.95rem;
+      letter-spacing: 0.13em;
+      text-transform: uppercase;
+      background: #f4efe2;
+      color: var(--oxford-blue);
+    }
+
+    .brand-text {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .brand-name {
+      font-size: 0.98rem;
+      font-weight: 600;
+      color: var(--oxford-blue);
+    }
+
+    .brand-sub {
+      font-size: 0.8rem;
+      color: var(--muted);
+    }
+
+    nav {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.9rem;
+      font-size: 0.86rem;
+    }
+
+    nav a {
+      color: var(--muted);
+      text-decoration: none;
+      padding-bottom: 0.1rem;
+      border-bottom: 1px solid transparent;
+    }
+
+    nav a:hover {
+      color: var(--oxford-blue);
+      border-color: var(--oxford-gold);
+    }
+
+    @media (max-width: 720px) {
+      .header-inner {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+      nav {
+        padding-left: 2.6rem;
+      }
+    }
+
+    main {
+      max-width: 980px;
+      margin: 0 auto;
+      padding: 2.5rem 1.5rem 3rem;
+    }
+
+    .hero {
+      display: grid;
+      grid-template-columns: minmax(0, 1.3fr) minmax(0, 0.9fr);
+      gap: 2rem;
+      margin-bottom: 3rem;
+      align-items: center;
+    }
+
+    @media (max-width: 800px) {
+      .hero {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    .hero-title {
+      font-family: "Georgia", "Times New Roman", serif;
+      font-size: clamp(1.9rem, 2.3vw, 2.2rem);
+      margin: 0 0 0.4rem;
+      color: var(--oxford-blue);
+    }
+
+    .hero-sub {
+      font-size: 0.98rem;
+      color: var(--muted);
+      margin-bottom: 0.7rem;
+    }
+
+    .hero-text {
+      font-size: 0.96rem;
+      margin-bottom: 0.6rem;
+    }
+
+    .hero-meta {
+      font-size: 0.9rem;
+      color: var(--muted);
+    }
+
+    .hero-side {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 0.75rem;
+    }
+
+    .profile-wrapper {
+      display: flex;
+      align-items: center;
+      gap: 0.9rem;
+    }
+
+    .profile-img {
+      width: 90px;
+      height: 90px;
+      border-radius: 999px;
+      object-fit: cover;
+      border: 1px solid var(--border-soft);
+      background: #f3ede1;
+    }
+
+    .pill-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.45rem;
+      margin-top: 0.3rem;
+    }
+
+    .pill {
+      border-radius: 999px;
+      border: 1px solid var(--border-soft);
+      padding: 0.16rem 0.6rem;
+      font-size: 0.76rem;
+      background: #f5f1e7;
+      color: #55535a;
+    }
+
+    section {
+      margin-bottom: 2.7rem;
+    }
+
+    h2 {
+      font-family: "Georgia", "Times New Roman", serif;
+      font-size: 1.25rem;
+      margin-bottom: 0.75rem;
+      color: var(--oxford-blue);
+      position: relative;
+      padding-bottom: 0.35rem;
+    }
+
+    h2::after {
+      content: "";
+      position: absolute;
+      left: 0;
+      bottom: 0;
+      width: 44px;
+      height: 2px;
+      background: linear-gradient(to right, var(--oxford-gold), transparent);
+    }
+
+    p {
+      margin-top: 0;
+      margin-bottom: 0.8rem;
+    }
+
+    .two-column {
+      display: grid;
+      grid-template-columns: minmax(0, 1.15fr) minmax(0, 0.95fr);
+      gap: 2rem;
+    }
+
+    @media (max-width: 800px) {
+      .two-column {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    .card {
+      background: var(--bg-card);
+      border-radius: 12px;
+      border: 1px solid var(--border-soft);
+      padding: 1rem 1.1rem;
+      margin-bottom: 0.9rem;
+    }
+
+    .card h3 {
+      margin: 0 0 0.3rem;
+      font-size: 0.98rem;
+      font-weight: 600;
+      color: var(--text-main);
+    }
+
+    .meta-line {
+      font-size: 0.82rem;
+      color: var(--muted);
+      margin-bottom: 0.4rem;
+    }
+
+    .small-heading {
+      text-transform: uppercase;
+      font-size: 0.76rem;
+      letter-spacing: 0.12em;
+      color: var(--muted);
+      margin-bottom: 0.25rem;
+    }
+
+    ul {
+      padding-left: 1.1rem;
+      margin-top: 0.2rem;
+      margin-bottom: 0.4rem;
+    }
+
+    li {
+      margin-bottom: 0.25rem;
+      font-size: 0.93rem;
+    }
+
+    .bullet-muted {
+      font-size: 0.9rem;
+      color: var(--muted);
+    }
+
+    .highlight-box {
+      background: #f6f2e8;
+      border-radius: 10px;
+      border: 1px dashed var(--border-soft);
+      padding: 0.8rem 0.9rem;
+      font-size: 0.9rem;
+      color: var(--muted);
+    }
+
+    .contact-list {
+      list-style: none;
+      padding-left: 0;
+      font-size: 0.93rem;
+    }
+
+    .contact-list li {
+      margin-bottom: 0.35rem;
+    }
+
+    a {
+      color: var(--oxford-blue);
+      text-decoration: none;
+    }
+
+    a:hover {
+      text-decoration: underline;
+    }
+
+    footer {
+      border-top: 1px solid var(--border-soft);
+      padding: 1.5rem 1.5rem 2rem;
+      text-align: center;
+      font-size: 0.8rem;
+      color: var(--muted);
+      background: rgba(255, 255, 255, 0.8);
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="header-inner">
+      <div class="brand">
+        <div class="monogram" aria-hidden="true">ZA</div>
+        <div class="brand-text">
+          <span class="brand-name">Zehra Azim</span>
+          <span class="brand-sub">DPhil Student &middot; Pharmacology, Oxford</span>
+        </div>
+      </div>
+      <nav>
+        <a href="#about">About</a>
+        <a href="#research">Research</a>
+        <a href="#experience">Experience</a>
+        <a href="#projects">Projects</a>
+        <a href="#skills">Skills</a>
+        <a href="#outreach">Outreach</a>
+        <a href="#contact">Contact</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <!-- HERO -->
+    <section class="hero">
+      <div>
+        <h1 class="hero-title">Zehra Azim</h1>
+        <p class="hero-sub">
+          DPhil student in Pharmacology at the University of Oxford, working in the Experimental Neuropathology Laboratory on inflammatory and molecular responses to traumatic brain injury.
+        </p>
+        <p class="hero-text">
+          Zehra’s background spans immunology, neuroscience, molecular biology, and digital health. She is interested in how immune and metabolic signals influence brain function after injury and how experimental work can inform translational approaches to neurological disease.
+        </p>
+        <p class="hero-meta">
+          MSc Integrated Immunology (Oxford) · BSc Biomedical Sciences (QMUL)
+        </p>
+        <div class="pill-row">
+          <span class="pill">Neuroinflammation</span>
+          <span class="pill">Traumatic Brain Injury</span>
+          <span class="pill">Immunology</span>
+          <span class="pill">In Vivo Models</span>
+          <span class="pill">Digital Health</span>
+        </div>
+      </div>
+      <div class="hero-side">
+        <div class="profile-wrapper">
+          <!-- Optional: put profile.jpg in your repo -->
+          <img src="profile.jpeg" alt="Portrait of Zehra Azim" class="profile-img" />
+          <div>
+            <div class="small-heading">Current role</div>
+            <p class="bullet-muted">
+              DPhil student in Pharmacology, supervised by Professor Daniel Anthony, focusing on neuroinflammatory mechanisms in traumatic brain injury.
+            </p>
+          </div>
+        </div>
+        <div class="highlight-box">
+          Broad interests at the intersection of neuroinflammation, immunology, translational medicine, and digital health, with a focus on mechanisms that link molecular changes to long-term outcomes.
+        </div>
+      </div>
+    </section>
+
+    <!-- ABOUT / RESEARCH OVERVIEW -->
+    <section id="about">
+      <h2>About</h2>
+      <div class="two-column">
+        <div>
+          <p>
+            Zehra is a DPhil student in the Department of Pharmacology at the University of Oxford. Her research explores how peripheral and central inflammatory pathways contribute to neuroinflammation and behavioural change after traumatic brain injury, using rodent models and molecular intervention strategies.
+          </p>
+          <p>
+            She completed an MSc in Integrated Immunology at Oxford, where she developed a strong foundation in molecular and cellular immunology, as well as bioinformatics and experimental design. Before that, she studied Biomedical Sciences at Queen Mary University of London, graduating with first-class honours.
+          </p>
+        </div>
+        <div>
+          <p>
+            Across roles at the William Harvey Research Institute, Imperial College London, UCL, and Oxford, Zehra has worked on projects related to inflammatory disease mechanisms, cytokine-driven signalling, and cell-based models of pathology. She aims to build a research career that integrates mechanistic neuroscience with translational and patient-centred perspectives.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- RESEARCH -->
+    <section id="research">
+      <h2>Research</h2>
+      <div class="two-column">
+        <div>
+          <div class="small-heading">Current DPhil project</div>
+          <p>
+            Zehra’s doctoral work examines how inflammatory mediators arising from peripheral tissues and the central nervous system shape neuroinflammatory responses and behavioural outcomes following traumatic brain injury. Her project uses in vivo models to investigate specific pathways that may influence both acute and longer-term changes in brain function.
+          </p>
+          <p>
+            She is developing experience with RNA- and viral-vector–based tools, cytokine profiling, and behavioural assays, with the longer-term aim of informing strategies that could be relevant for future therapeutic approaches.
+          </p>
+        </div>
+        <div>
+          <div class="small-heading">Broader interests</div>
+          <ul>
+            <li>Neuroimmune interactions in brain injury and neurodegeneration.</li>
+            <li>Traumatic brain injury and post-injury cognitive and behavioural outcomes.</li>
+            <li>Inflammatory and metabolic signalling in the CNS.</li>
+            <li>Links between molecular mechanisms and clinical or translational questions.</li>
+            <li>Digital health tools to support people with chronic or long-term conditions.</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- EXPERIENCE -->
+    <section id="experience">
+      <h2>Selected Experience</h2>
+
+      <div class="card">
+        <h3>DPhil in Pharmacology</h3>
+        <div class="meta-line">
+          University of Oxford &middot; Experimental Neuropathology Laboratory
+        </div>
+        <p class="bullet-muted">
+          Working under the supervision of Professor Daniel Anthony on the role of inflammatory pathways in traumatic brain injury, focusing on peripheral and CNS contributions to neuroinflammation and behaviour.
+        </p>
+      </div>
+
+      <div class="card">
+        <h3>MSc in Integrated Immunology</h3>
+        <div class="meta-line">University of Oxford</div>
+        <p class="bullet-muted">
+          Completed an intensive taught and research programme covering molecular and cellular immunology, infection, autoimmunity, and immunotechnology, including exposure to bioinformatics and data analysis.
+        </p>
+      </div>
+
+      <div class="card">
+        <h3>Undergraduate Research &amp; London Institutes</h3>
+        <div class="meta-line">
+          Queen Mary University of London, William Harvey Research Institute, Imperial College London, UCL
+        </div>
+        <p class="bullet-muted">
+          Early research experience during a BSc in Biomedical Sciences, including projects at the William Harvey Research Institute and subsequent roles at Imperial College London and UCL focused on inflammatory signalling and cell-based models.
+        </p>
+      </div>
+
+      <div class="card">
+        <h3>Digital Health Innovation Intern</h3>
+        <div class="meta-line">
+          Tiny Medical Apps &middot; Barts HealthTech SME Project
+        </div>
+        <p class="bullet-muted">
+          Involved in work on the Digital Health Passport, including design of a school-engagement pilot, social media content for public health campaigns, and contributions to a service evaluation report.
+        </p>
+      </div>
+    </section>
+
+    <!-- PROJECTS -->
+    <section id="projects">
+      <h2>Projects</h2>
+
+      <div class="card">
+        <h3>Traumatic Brain Injury &amp; Neuroinflammation</h3>
+        <p class="bullet-muted">
+          Ongoing DPhil work exploring how inflammatory pathways influence neuroinflammatory responses and behaviour after traumatic brain injury, using in vivo models and molecular intervention strategies.
+        </p>
+      </div>
+
+      <div class="card">
+        <h3>Fibroblast Activation in Inflammatory Disease</h3>
+        <p class="bullet-muted">
+          Previous MSc project examining cytokine-driven fibroblast activation and immunomodulatory signals in an in vitro model of inflammation.
+        </p>
+      </div>
+
+      <div class="card">
+        <h3>Digital Health Passport Service Evaluation</h3>
+        <p class="bullet-muted">
+          Work with Tiny Medical Apps on evaluating and communicating the impact of a digital tool aimed at supporting asthma management and patient engagement.
+        </p>
+      </div>
+    </section>
+
+    <!-- SKILLS -->
+    <section id="skills">
+      <h2>Selected Skills</h2>
+      <div class="two-column">
+        <div>
+          <div class="small-heading">Laboratory &amp; Experimental</div>
+          <ul>
+            <li>Mammalian cell culture and viability assays (e.g. WST-8, MTT).</li>
+            <li>Molecular biology: RNA extraction, cDNA synthesis, qPCR.</li>
+            <li>Protein analysis: Western blotting, ELISA.</li>
+            <li>Immunohistochemistry, tissue processing, cryosectioning.</li>
+            <li>Light microscopy and image-based analysis.</li>
+          </ul>
+
+          <div class="small-heading">In vivo</div>
+          <ul>
+            <li>UK Home Office Personal Licence (PIL).</li>
+            <li>Stereotactic procedures and viral vector delivery in mice.</li>
+            <li>Intraperitoneal injections and routine handling.</li>
+            <li>Schedule 1 methods and tissue collection.</li>
+          </ul>
+        </div>
+        <div>
+          <div class="small-heading">Data &amp; Analysis</div>
+          <ul>
+            <li>Data analysis and visualisation in <strong>R</strong>.</li>
+            <li>Experience with immunological and transcriptomic datasets.</li>
+            <li>Basic statistical analysis and figure preparation.</li>
+          </ul>
+
+          <div class="small-heading">Broader Experience</div>
+          <ul>
+            <li>Digital health innovation and service evaluation.</li>
+            <li>Scientific and public-facing writing.</li>
+            <li>Team-based work across academic, clinical, and tech settings.</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- OUTREACH -->
+    <section id="outreach">
+      <h2>Volunteering &amp; Outreach</h2>
+
+      <div class="card">
+        <h3>Healthcare &amp; Community Roles</h3>
+        <p class="bullet-muted">
+          Zehra has a sustained interest in healthcare and community engagement alongside her research.
+        </p>
+        <ul>
+          <li>Operational First Aider with St John Ambulance.</li>
+          <li>Volunteering in NHS-linked and community health settings.</li>
+          <li>Certified Mental Health First Aider.</li>
+        </ul>
+      </div>
+
+      <div class="card">
+        <h3>Student &amp; Editorial Activities</h3>
+        <ul>
+          <li>Participation in student leadership and society roles.</li>
+          <li>Experience in medical and scientific writing and editorial work.</li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- CONTACT -->
+    <section id="contact">
+      <h2>Contact</h2>
+      <p>
+        The easiest way to get in touch is by email. Zehra is happy to hear from students, collaborators, and colleagues with shared interests in neuroinflammation, immunology, or interdisciplinary health research.
+      </p>
+      <ul class="contact-list">
+        <li><strong>Email:</strong> <a href="mailto:zehra.azim@hertford.ox.ac.uk">zehra.azim@hertford.ox.ac.uk</a></li>
+        <li><strong>LinkedIn:</strong> <a href="https://www.linkedin.com/in/zehra-azim-bb9537211" target="_blank" rel="noopener">linkedin.com/in/zehra-azim-bb9537211</a></li>
+        <li><strong>Oxford profile:</strong> <a href="https://www.pharm.ox.ac.uk/team/zehra-azim" target="_blank" rel="noopener">Department of Pharmacology webpage</a></li>
+      </ul>
+    </section>
+  </main>
+
+  <footer>
+    © <span id="year"></span> Zehra Azim · University of Oxford
+  </footer>
+
+  <script>
+    document.getElementById("year").textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
